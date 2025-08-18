@@ -19,4 +19,3 @@ curl http://localhost:11434/api/chat -d "{
   \"model\": \"gemma3:1b\",
   \"messages\":[{\"role\":\"user\",\"content\":\"¿Qué es Ollama?\"}]
 }"
-
