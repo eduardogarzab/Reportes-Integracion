@@ -1,5 +1,3 @@
-# Reporte de Ejercicio Práctico
-
 ## Pasos y comandos utilizados
 
 # 1. Ejecutar el contenedor de Ollama en segundo plano
