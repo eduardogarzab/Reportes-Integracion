@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chat con Gemma3:1b - Ollama API</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>💬 Chat con Gemma3:1b</h1>
+				<p>Conectado a Ollama API - Modelo: gemma3:1b</p>
+			</div>
+
+			<div class="chat-container" id="chatContainer">
+				<div class="message bot">
+					<div class="message-avatar">🤖</div>
+					<div class="message-content">¡Hola! Soy Gemma3:1b, un modelo de lenguaje desarrollado por Google. ¿En qué puedo ayudarte hoy?</div>
+				</div>
+			</div>
+
+			<div class="typing-indicator" id="typingIndicator">
+				<div class="typing-dots">
+					<div class="typing-dot"></div>
+					<div class="typing-dot"></div>
+					<div class="typing-dot"></div>
+				</div>
+			</div>
+
+			<div class="input-container">
+				<div class="input-group">
+					<input type="text" class="message-input" id="messageInput" placeholder="Escribe tu mensaje aquí..." maxlength="1000" />
+					<button class="send-button" id="sendButton" onclick="sendMessage()">
+						<span id="buttonText">Enviar</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
