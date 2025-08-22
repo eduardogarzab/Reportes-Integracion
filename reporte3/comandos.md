@@ -1,32 +1,34 @@
-## Pasos y comandos utilizados
+# Actualizar paquetes del sistema
+sudo apt update
+sudo apt upgrade -y
 
-# 1. Instalar plugins de DNF necesarios para manejar repositorios
-sudo dnf -y install dnf-plugins-core
+# Instalar dependencias necesarias
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release
 
-# 2. Agregar el repositorio oficial de Docker para RHEL
-sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+# Añadir la clave oficial de Docker
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
-# 3. Instalar Docker CE, su CLI y containerd
-sudo dnf install -y docker-ce docker-ce-cli containerd.io
+# Añadir el repositorio de Docker
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# 4. Habilitar y arrancar el servicio de Docker, y verificar su estado
-sudo systemctl enable --now docker
-sudo systemctl status docker
+# Actualizar repositorios e instalar Docker
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-# 5. Ejecutar el contenedor de Ollama en segundo plano, exponiendo el puerto 11434
-sudo docker run -d -p 11434:11434 --name ollama ollama/ollama
+# Verificar la instalación
+sudo docker --version
 
-# 6. Descargar el modelo gemma3:1b dentro del contenedor
-sudo docker exec -it ollama ollama pull gemma3:1b
+# Iniciar el contenedor de Ollama
+docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 
-# 7. Verificar qué modelos están disponibles en el contenedor
-sudo docker exec -it ollama ollama list
+# Ejecutar un comando en el contenedor de Ollama
+docker exec -it ollama ollama run gemma:2b
 
-# 8. Probar el modelo ejecutándolo directamente desde el contenedor
-sudo docker exec -it ollama ollama run gemma3:1b
+# Iniciar el contenedor de Open Web UI
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 
-# 9. Probar el API de Ollama con el endpoint /api/chat, enviando un mensaje al modelo gemma3:1b
-curl http://localhost:11434/api/chat -d "{
-  \"model\": \"gemma3:1b\",
-  \"messages\":[{\"role\":\"user\",\"content\":\"¿Qué es Ollama?\"}]
-}"
+# Por ultimo conectarse a la interfaz web, a traves de la ip de la VM
