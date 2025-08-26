@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="libros.xsl"?>
+
+<catalog>
+  <book isbn="978-0140449136">
+    <title>La Odisea</title>
+    <author>Homero</author>
+    <year>1996</year>
+    <genre>Clásico</genre>
+    <price>12.50</price>
+    <stock>25</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0307743657">
+    <title>1984</title>
+    <author>George Orwell</author>
+    <year>2011</year>
+    <genre>Distopía</genre>
+    <price>9.99</price>
+    <stock>40</stock>
+    <format>Digital</format>
+  </book>
+
+  <book isbn="978-0061120084">
+    <title>Matar a un ruiseñor</title>
+    <author>Harper Lee</author>
+    <year>2006</year>
+    <genre>Drama</genre>
+    <price>14.25</price>
+    <stock>12</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0307387899">
+    <title>El amante japonés</title>
+    <author>Isabel Allende</author>
+    <year>2015</year>
+    <genre>Romance</genre>
+    <price>18.90</price>
+    <stock>7</stock>
+    <format>Digital</format>
+  </book>
+
+  <book isbn="978-0553386790">
+    <title>Una breve historia del tiempo</title>
+    <author>Stephen Hawking</author>
+    <year>1998</year>
+    <genre>Ciencia</genre>
+    <price>15.00</price>
+    <stock>18</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-8497592208">
+    <title>La sombra del viento</title>
+    <author>Carlos Ruiz Zafón</author>
+    <year>2002</year>
+    <genre>Misterio</genre>
+    <price>13.75</price>
+    <stock>30</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0345803481">
+    <title>Cincuenta sombras de Grey</title>
+    <author>E. L. James</author>
+    <year>2012</year>
+    <genre>Romance</genre>
+    <price>11.20</price>
+    <stock>50</stock>
+    <format>Digital</format>
+  </book>
+
+  <book isbn="978-0307277671">
+    <title>La carretera</title>
+    <author>Cormac McCarthy</author>
+    <year>2007</year>
+    <genre>Postapocalíptico</genre>
+    <price>10.95</price>
+    <stock>22</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0143038412">
+    <title>Los hermanos Karamázov</title>
+    <author>Fiódor Dostoyevski</author>
+    <year>2005</year>
+    <genre>Filosofía</genre>
+    <price>17.50</price>
+    <stock>15</stock>
+    <format>Mixto</format>
+  </book>
+
+  <book isbn="978-8445071036">
+    <title>El Señor de los Anillos</title>
+    <author>J. R. R. Tolkien</author>
+    <year>2001</year>
+    <genre>Fantasía</genre>
+    <price>25.99</price>
+    <stock>10</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0307949486">
+    <title>El marciano</title>
+    <author>Andy Weir</author>
+    <year>2014</year>
+    <genre>Ciencia ficción</genre>
+    <price>16.80</price>
+    <stock>19</stock>
+    <format>Digital</format>
+  </book>
+
+  <book isbn="978-0451524935">
+    <title>Orgullo y prejuicio</title>
+    <author>Jane Austen</author>
+    <year>2003</year>
+    <genre>Romance</genre>
+    <price>8.50</price>
+    <stock>33</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-1501128035">
+    <title>It</title>
+    <author>Stephen King</author>
+    <year>2016</year>
+    <genre>Terror</genre>
+    <price>22.00</price>
+    <stock>8</stock>
+    <format>Mixto</format>
+  </book>
+
+  <book isbn="978-0141187761">
+    <title>En el camino</title>
+    <author>Jack Kerouac</author>
+    <year>2000</year>
+    <genre>Contracultura</genre>
+    <price>12.99</price>
+    <stock>27</stock>
+    <format>Digital</format>
+  </book>
+
+  <book isbn="978-0307474278">
+    <title>Cometas en el cielo</title>
+    <author>Khaled Hosseini</author>
+    <year>2004</year>
+    <genre>Drama</genre>
+    <price>14.99</price>
+    <stock>21</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0452284234">
+    <title>El código Da Vinci</title>
+    <author>Dan Brown</author>
+    <year>2003</year>
+    <genre>Thriller</genre>
+    <price>19.95</price>
+    <stock>35</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0143111580">
+    <title>Sapiens: De animales a dioses</title>
+    <author>Yuval Noah Harari</author>
+    <year>2015</year>
+    <genre>Historia</genre>
+    <price>18.00</price>
+    <stock>28</stock>
+    <format>Mixto</format>
+  </book>
+
+  <book isbn="978-0307476074">
+    <title>Los juegos del hambre</title>
+    <author>Suzanne Collins</author>
+    <year>2008</year>
+    <genre>Juvenil</genre>
+    <price>12.40</price>
+    <stock>45</stock>
+    <format>Digital</format>
+  </book>
+
+  <book isbn="978-0316769488">
+    <title>El guardián entre el centeno</title>
+    <author>J. D. Salinger</author>
+    <year>1991</year>
+    <genre>Clásico</genre>
+    <price>10.70</price>
+    <stock>17</stock>
+    <format>Físico</format>
+  </book>
+
+  <book isbn="978-0553573404">
+    <title>Juego de tronos</title>
+    <author>George R. R. Martin</author>
+    <year>1997</year>
+    <genre>Fantasía</genre>
+    <price>20.00</price>
+    <stock>14</stock>
+    <format>Mixto</format>
+  </book>
+</catalog>

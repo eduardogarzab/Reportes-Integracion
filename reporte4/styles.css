@@ -1,0 +1,94 @@
+/* Reset básico */
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f5f7fa;
+	margin: 0;
+	padding: 20px;
+	color: #333;
+}
+
+/* Título general */
+h1 {
+	text-align: center;
+	color: #222;
+	margin-bottom: 30px;
+}
+
+/* Barra de búsqueda */
+.search-box {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.search-box input {
+	padding: 8px 12px;
+	margin: 5px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 0.95rem;
+}
+
+/* Contenedor del catálogo */
+.catalog {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+}
+
+/* Cada tarjeta de libro */
+.book {
+	background: #fff;
+	border-radius: 12px;
+	padding: 16px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
+}
+
+.book:hover {
+	transform: translateY(-5px);
+}
+
+/* Título del libro */
+.book h2 {
+	font-size: 1.2rem;
+	margin: 0 0 8px 0;
+	color: #2c3e50;
+}
+
+/* Autor */
+.book .author {
+	font-weight: bold;
+	color: #555;
+	margin-bottom: 6px;
+}
+
+/* Año y género */
+.book .meta {
+	font-size: 0.9rem;
+	color: #777;
+	margin-bottom: 8px;
+}
+
+/* Precio */
+.book .price {
+	font-size: 1.1rem;
+	color: #27ae60;
+	margin-bottom: 10px;
+}
+
+/* Stock */
+.book .stock {
+	font-size: 0.9rem;
+	color: #2980b9;
+	margin-bottom: 6px;
+}
+
+/* Formato */
+.book .format {
+	font-size: 0.85rem;
+	background: #ecf0f1;
+	display: inline-block;
+	padding: 4px 8px;
+	border-radius: 6px;
+	color: #7f8c8d;
+}
