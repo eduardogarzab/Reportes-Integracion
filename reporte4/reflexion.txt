@@ -1,0 +1,7 @@
+Este ejercicio de tomar un archivo XML y mostrarlo en HTML mediante XSL y CSS me ayudó a comprender mejor cómo se puede separar la información de su presentación. El XML nos da los datos de manera estructurada, pero sin estilo; el XSL actúa como un traductor que convierte esos datos en etiquetas HTML, y luego con CSS podemos darle una apariencia más clara y agradable.
+
+Lo interesante es que en ningún momento tuvimos que modificar el contenido original del XML, sino que simplemente le aplicamos una transformación. Eso me hizo ver lo flexible que es trabajar con XSL, porque un mismo XML puede mostrarse de distintas formas dependiendo de la hoja de estilo que usemos.
+
+También noté que al inicio puede parecer un poco enredado ver tantas tecnologías juntas, pero cuando se entienden sus roles se ve más simple: XML = datos, XSL = transformación, HTML = estructura en el navegador y CSS = estilo visual. Esa separación ayuda a que el sistema sea más ordenado y fácil de mantener.
+
+En conclusión, este ejercicio me sirvió para practicar cómo llevar datos “planos” a una vista más entendible para el usuario, y al mismo tiempo me dejó claro que la presentación y la lógica de los datos pueden manejarse por capas distintas, lo cual es una idea importante en el desarrollo de software.
