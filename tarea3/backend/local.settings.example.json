@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+
+    "SERVICEBUS_CONNECTION_STR": "Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<name>;SharedAccessKey=<key>",
+    "SERVICEBUS_QUEUE": "transfers",
+
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "AzureWebJobs.queue_process_transfer.Disabled": "true",
+    "DEMO_NO_SB": "1"
+  }
+}

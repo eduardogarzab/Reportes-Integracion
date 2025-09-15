@@ -1,0 +1,4 @@
+azure-functions
+azure-servicebus==7.14.1
+pydantic==2.8.2
+requests
