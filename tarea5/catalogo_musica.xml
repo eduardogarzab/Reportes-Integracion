@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Aqui agregar la ruta del xsl para hacer los filtros y transformaciones -->
+<?xml-stylesheet type="text/xsl" href="xslt/music_index_by_artist.xsl"?>
+<catalog>
+  <artist name="Aurora Vega" country="México">
+    <album title="Caminos de Luz" year="2019">
+      <genre>Pop</genre>
+      <song title="Despertar" duration="03:12" single="true"/>
+      <song title="Caminos" duration="04:08" single="false"/>
+      <song title="Luz del Sur" duration="03:45" single="false"/>
+      <song title="Eco de Abril" duration="02:59" single="true"/>
+    </album>
+    <album title="Horizonte" year="2022">
+      <genre>Pop</genre>
+      <song title="Horizonte" duration="03:51" single="true"/>
+      <song title="Nubes" duration="03:20" single="false"/>
+      <song title="Final Feliz" duration="03:30" single="false"/>
+    </album>
+  </artist>
+
+  <artist name="Electric Jaguars" country="Estados Unidos">
+    <album title="Neon City" year="2018">
+      <genre>Rock</genre>
+      <song title="Neon City" duration="03:58" single="true"/>
+      <song title="Midnight Run" duration="04:21" single="false"/>
+      <song title="Static Hearts" duration="03:44" single="false"/>
+      <song title="Glass Lines" duration="04:05" single="true"/>
+    </album>
+  </artist>
+
+  <artist name="Luna Norte" country="Argentina">
+    <album title="Inviernos Largos" year="2017">
+      <genre>Indie</genre>
+      <song title="Frío" duration="02:50" single="false"/>
+      <song title="Abrigo" duration="03:10" single="true"/>
+      <song title="Postales" duration="03:33" single="false"/>
+    </album>
+  </artist>
+
+  <artist name="Sierra Azul" country="Chile">
+    <album title="Pacífico" year="2020">
+      <genre>Folk</genre>
+      <song title="Mar Abierto" duration="03:22" single="true"/>
+      <song title="Isla" duration="02:58" single="false"/>
+      <song title="Viento Sur" duration="03:40" single="false"/>
+    </album>
+  </artist>
+
+  <artist name="DJ Prisma" country="España">
+    <album title="Reflejos" year="2021">
+      <genre>Electronic</genre>
+      <song title="Prisma" duration="03:00" single="true"/>
+      <song title="Reflejo" duration="03:12" single="false"/>
+      <song title="Noche RGB" duration="03:25" single="true"/>
+    </album>
+  </artist>
+</catalog>

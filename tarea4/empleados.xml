@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company>
+  <!-- Ingeniería (Monterrey) -->
+  <employee id="E001" full_time="true" hire_date="2019-03-15">
+    <first_name>Eduardo</first_name><last_name>García</last_name>
+    <position>Software Engineer</position>
+    <department name="Ingeniería" location="Monterrey"/>
+    <salary currency="MXN">42000</salary>
+  </employee>
+  <employee id="E002" full_time="true" hire_date="2020-07-01">
+    <first_name>Ana</first_name><last_name>Flores</last_name>
+    <position>DevOps Engineer</position>
+    <department name="Ingeniería" location="Monterrey"/>
+    <salary currency="MXN">48000</salary>
+  </employee>
+  <employee id="E003" full_time="false" hire_date="2021-02-10">
+    <first_name>Javier</first_name><last_name>Ortega</last_name>
+    <position>QA Analyst</position>
+    <department name="Ingeniería" location="Monterrey"/>
+    <salary currency="MXN">28000</salary>
+  </employee>
+  <employee id="E004" full_time="true" hire_date="2018-11-20">
+    <first_name>Mariana</first_name><last_name>Luna</last_name>
+    <position>Tech Lead</position>
+    <department name="Ingeniería" location="Monterrey"/>
+    <salary currency="MXN">65000</salary>
+  </employee>
+
+  <!-- Ventas (CDMX) -->
+  <employee id="E005" full_time="true" hire_date="2017-05-03">
+    <first_name>Carlos</first_name><last_name>Mendoza</last_name>
+    <position>Account Executive</position>
+    <department name="Ventas" location="CDMX"/>
+    <salary currency="MXN">35000</salary>
+  </employee>
+  <employee id="E006" full_time="false" hire_date="2022-01-15">
+    <first_name>Lucía</first_name><last_name>Reyes</last_name>
+    <position>Sales Assistant</position>
+    <department name="Ventas" location="CDMX"/>
+    <salary currency="MXN">20000</salary>
+  </employee>
+  <employee id="E007" full_time="true" hire_date="2016-09-09">
+    <first_name>Diego</first_name><last_name>Salinas</last_name>
+    <position>Sales Manager</position>
+    <department name="Ventas" location="CDMX"/>
+    <salary currency="MXN">60000</salary>
+  </employee>
+  <employee id="E008" full_time="true" hire_date="2023-03-12">
+    <first_name>Elena</first_name><last_name>Campos</last_name>
+    <position>Inside Sales</position>
+    <department name="Ventas" location="CDMX"/>
+    <salary currency="MXN">28000</salary>
+  </employee>
+
+  <!-- RRHH (Guadalajara) -->
+  <employee id="E009" full_time="true" hire_date="2015-04-18">
+    <first_name>Sofía</first_name><last_name>Hernández</last_name>
+    <position>HR Generalist</position>
+    <department name="RRHH" location="Guadalajara"/>
+    <salary currency="MXN">30000</salary>
+  </employee>
+  <employee id="E010" full_time="false" hire_date="2021-08-27">
+    <first_name>Tomás</first_name><last_name>Pérez</last_name>
+    <position>Recruiter</position>
+    <department name="RRHH" location="Guadalajara"/>
+    <salary currency="MXN">22000</salary>
+  </employee>
+  <employee id="E011" full_time="true" hire_date="2019-12-05">
+    <first_name>Valeria</first_name><last_name>Juárez</last_name>
+    <position>Comp &amp; Benefits Analyst</position>
+    <department name="RRHH" location="Guadalajara"/>
+    <salary currency="MXN">32000</salary>
+  </employee>
+  <employee id="E012" full_time="true" hire_date="2018-06-30">
+    <first_name>Manuel</first_name><last_name>Ríos</last_name>
+    <position>HRBP</position>
+    <department name="RRHH" location="Guadalajara"/>
+    <salary currency="MXN">45000</salary>
+  </employee>
+
+  <!-- Finanzas (Monterrey) -->
+  <employee id="E013" full_time="true" hire_date="2014-10-01">
+    <first_name>Patricia</first_name><last_name>Silva</last_name>
+    <position>Financial Analyst</position>
+    <department name="Finanzas" location="Monterrey"/>
+    <salary currency="MXN">38000</salary>
+  </employee>
+  <employee id="E014" full_time="true" hire_date="2016-01-19">
+    <first_name>Rodrigo</first_name><last_name>Velasco</last_name>
+    <position>Controller</position>
+    <department name="Finanzas" location="Monterrey"/>
+    <salary currency="MXN">70000</salary>
+  </employee>
+  <employee id="E015" full_time="false" hire_date="2022-05-07">
+    <first_name>Natalia</first_name><last_name>Bravo</last_name>
+    <position>AP Clerk</position>
+    <department name="Finanzas" location="Monterrey"/>
+    <salary currency="MXN">18000</salary>
+  </employee>
+  <employee id="E016" full_time="true" hire_date="2018-02-22">
+    <first_name>Alberto</first_name><last_name>Cervantes</last_name>
+    <position>Treasury Specialist</position>
+    <department name="Finanzas" location="Monterrey"/>
+    <salary currency="MXN">42000</salary>
+  </employee>
+
+  <!-- Operaciones (Monterrey) -->
+  <employee id="E017" full_time="true" hire_date="2013-07-11">
+    <first_name>Brenda</first_name><last_name>López</last_name>
+    <position>Operations Coordinator</position>
+    <department name="Operaciones" location="Monterrey"/>
+    <salary currency="MXN">36000</salary>
+  </employee>
+  <employee id="E018" full_time="true" hire_date="2020-09-25">
+    <first_name>Héctor</first_name><last_name>Ramírez</last_name>
+    <position>Logistics Analyst</position>
+    <department name="Operaciones" location="Monterrey"/>
+    <salary currency="MXN">31000</salary>
+  </employee>
+  <employee id="E019" full_time="false" hire_date="2021-11-03">
+    <first_name>Paulina</first_name><last_name>Martínez</last_name>
+    <position>Inventory Assistant</position>
+    <department name="Operaciones" location="Monterrey"/>
+    <salary currency="MXN">19000</salary>
+  </employee>
+  <employee id="E020" full_time="true" hire_date="2017-01-08">
+    <first_name>Miguel</first_name><last_name>Castro</last_name>
+    <position>Plant Manager</position>
+    <department name="Operaciones" location="Monterrey"/>
+    <salary currency="MXN">80000</salary>
+  </employee>
+</company>
