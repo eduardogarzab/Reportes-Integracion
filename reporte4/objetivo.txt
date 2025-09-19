@@ -1,1 +1,1 @@
-Este reporte tiene como objetivo mostrar la manipulación de archivos XML y XSL, así como la reflexión sobre el proceso.
+Diseñar transformaciones XSLT que conviertan documentos XML en vistas web estructuradas y dinámicas, separando claramente datos de presentación.

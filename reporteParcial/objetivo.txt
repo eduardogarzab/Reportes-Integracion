@@ -1,1 +1,1 @@
-Este espacio contiene la entrega parcial del proyecto final, cuyo objetivo es documentar el avance y los resultados obtenidos hasta el momento.
+Presentar el primer avance del proyecto final Heartguard exponiendo la propuesta funcional y la arquitectura inicial definida para su evolución posterior.

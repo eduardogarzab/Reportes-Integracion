@@ -1,1 +1,1 @@
-Esta tarea tiene como objetivo redactar un ensayo sobre el tema asignado.
+Comparar sistemáticamente aplicaciones cloud-native frente a cloud-enabled identificando diferencias en diseño, escalabilidad, portabilidad y dependencia de la infraestructura.

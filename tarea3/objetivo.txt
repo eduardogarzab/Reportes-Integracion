@@ -1,1 +1,1 @@
-Esta tarea tiene como objetivo desarrollar y documentar funciones backend y reflexionar sobre el proceso.
+Diseñar e implementar una arquitectura serverless en la nube para una aplicación de banca móvil utilizando AWS Lambda y servicios gestionados que soporten escalabilidad y bajo acoplamiento.

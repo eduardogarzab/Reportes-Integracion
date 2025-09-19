@@ -1,1 +1,1 @@
-Esta tarea tiene como objetivo practicar la manipulación de imágenes.
+Analizar y documentar los distintos modelos de provisión de servicios en arquitecturas de software, resaltando sus características y diferencias clave.

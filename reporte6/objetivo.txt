@@ -1,1 +1,1 @@
-Este reporte tiene como objetivo mostrar la implementación de CQRS en una microaplicación y la integración de recursos.
+Aplicar el patrón CQRS al servicio de libros separando claramente las operaciones de escritura (commands) de las de lectura (queries) para optimizar rendimiento y escalabilidad.

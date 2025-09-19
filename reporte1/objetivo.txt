@@ -1,1 +1,1 @@
-Este reporte tiene como objetivo presentar el funcionamiento del clasificador y su aplicación sobre las imágenes incluidas.
+Diseñar e implementar un clasificador de servicios en la nube que use técnicas de PLN (NLP) para identificar y etiquetar automáticamente los distintos tipos de ofertas cloud, generando una categorización consistente para su análisis posterior.

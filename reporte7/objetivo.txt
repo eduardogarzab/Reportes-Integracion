@@ -1,1 +1,1 @@
-Este reporte tiene como objetivo documentar la autenticación en aplicaciones y reflexionar sobre el proceso.
+Integrar múltiples microservicios bajo un esquema de autenticación y autorización basado en JWT, conformando un sistema cohesivo y seguro de extremo a extremo.

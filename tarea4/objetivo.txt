@@ -1,1 +1,1 @@
-Esta tarea tiene como objetivo trabajar con archivos XML y practicar la manipulación de datos.
+Definir transformaciones XSLT que procesen un catálogo de música en XML y produzcan múltiples vistas filtradas y ordenadas según criterios definidos.

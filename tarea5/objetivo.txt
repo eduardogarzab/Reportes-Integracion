@@ -1,1 +1,1 @@
-Esta tarea tiene como objetivo trabajar con archivos XML y XSLT para manipular y transformar datos.
+Elaborar transformaciones XSLT que generen reportes de empleados y departamentos aplicando distintos criterios de filtrado, agregación y organización jerárquica de la información.

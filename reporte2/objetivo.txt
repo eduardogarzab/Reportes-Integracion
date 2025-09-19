@@ -1,1 +1,1 @@
-Este reporte tiene como objetivo mostrar el uso de comandos y la manipulación de imágenes, así como la reflexión sobre el proceso realizado.
+Desplegar y ejecutar localmente un LLM para procesar texto sin depender de servicios externos, garantizando privacidad de los datos y control total del entorno de inferencia.
