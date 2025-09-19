@@ -1,0 +1,1 @@
+Esta tarea tiene como objetivo trabajar con archivos XML y practicar la manipulación de datos.

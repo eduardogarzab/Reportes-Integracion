@@ -1,0 +1,1 @@
+Este reporte tiene como objetivo presentar el funcionamiento del clasificador y su aplicación sobre las imágenes incluidas.

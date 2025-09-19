@@ -1,0 +1,1 @@
+Este reporte tiene como objetivo mostrar la implementación de CQRS en una microaplicación y la integración de recursos.

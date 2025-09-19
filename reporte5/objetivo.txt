@@ -1,0 +1,1 @@
+Este reporte tiene como objetivo presentar el desarrollo de una microaplicación y la integración de recursos como CSS, JS y XSL.

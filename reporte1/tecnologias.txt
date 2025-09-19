@@ -1,0 +1,4 @@
+Python
+Clasificación de imágenes
+JPG
+TXT

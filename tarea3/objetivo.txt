@@ -1,0 +1,1 @@
+Esta tarea tiene como objetivo desarrollar y documentar funciones backend y reflexionar sobre el proceso.
