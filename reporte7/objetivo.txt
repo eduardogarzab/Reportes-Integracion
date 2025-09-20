@@ -1,1 +1,1 @@
-Integrar múltiples microservicios bajo un esquema de autenticación y autorización basado en JWT, conformando un sistema cohesivo y seguro de extremo a extremo.
+Consolidar autenticación y autorización JWT sobre recursos multi‑servicio para interiorizar control de acceso, mitigación de riesgos comunes y emisión/rotación segura de tokens en ecosistemas distribuidos.

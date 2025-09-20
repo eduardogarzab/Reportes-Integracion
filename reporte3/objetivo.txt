@@ -1,1 +1,1 @@
-Publicar un modelo de lenguaje en la nube habilitando acceso remoto seguro y capacidad de escalar según la demanda de solicitudes.
+Dominar el aprovisionamiento reproducible de un entorno de inferencia de modelos (Docker + runtime de LLM) enfatizando automatización, portabilidad y aislamiento como fundamentos de despliegues escalables.

@@ -1,1 +1,1 @@
-Aplicar el patrón CQRS al servicio de libros separando claramente las operaciones de escritura (commands) de las de lectura (queries) para optimizar rendimiento y escalabilidad.
+Implementar un microservicio con separación CQRS e idempotencia para afianzar patrones de consistencia, trazabilidad de cambios y extensibilidad mediante outbox en arquitecturas orientadas a eventos.

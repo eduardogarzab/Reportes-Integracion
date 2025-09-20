@@ -1,1 +1,1 @@
-Construir un servicio independiente para la gestión de libros siguiendo principios de arquitectura de microservicios (despliegue aislado, responsabilidad única y comunicación bien definida).
+Diseñar un microservicio que expone datos en XML estilizable vía XSL y operaciones CRUD, consolidando fundamentos de integración, serialización estructurada y políticas CORS seguras.

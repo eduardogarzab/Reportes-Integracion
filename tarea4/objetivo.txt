@@ -1,1 +1,1 @@
-Definir transformaciones XSLT que procesen un catálogo de música en XML y produzcan múltiples vistas filtradas y ordenadas según criterios definidos.
+Practicar modelado declarativo de vistas derivadas mediante XSLT optimizando reutilización semántica de datos XML y reducción de lógica imperativa en la capa de presentación.

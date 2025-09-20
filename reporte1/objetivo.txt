@@ -1,1 +1,1 @@
-Diseñar e implementar un clasificador de servicios en la nube que use técnicas de PLN (NLP) para identificar y etiquetar automáticamente los distintos tipos de ofertas cloud, generando una categorización consistente para su análisis posterior.
+Desarrollar un clasificador asistido por LLM para internalizar criterios prácticos de diferenciación entre modelos IaaS, PaaS, SaaS y FaaS y fortalecer el pensamiento crítico sobre selección de servicios en arquitecturas cloud.

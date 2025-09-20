@@ -1,1 +1,1 @@
-Elaborar transformaciones XSLT que generen reportes de empleados y departamentos aplicando distintos criterios de filtrado, agregación y organización jerárquica de la información.
+Consolidar el uso de XSLT para construir reportes jerárquicos y métricas agregadas que soporten análisis organizacional manteniendo separación limpia entre fuente estructurada y representación visual.
