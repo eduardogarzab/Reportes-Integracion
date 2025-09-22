@@ -1,1 +1,1 @@
-Analizar y documentar los distintos modelos de provisión de servicios en arquitecturas de software, resaltando sus características y diferencias clave.
+Interiorizar criterios de selección entre modelos de provisión (IaaS, PaaS, SaaS, FaaS) enfocándose en impacto sobre control operativo, velocidad de entrega y costo total de propiedad.

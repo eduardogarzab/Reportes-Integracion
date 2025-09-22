@@ -1,1 +1,1 @@
-Diseñar e implementar una arquitectura serverless en la nube para una aplicación de banca móvil utilizando AWS Lambda y servicios gestionados que soporten escalabilidad y bajo acoplamiento.
+Estructurar una solución financiera serverless priorizando desacoplamiento, ejecución bajo demanda y reducción de superficie operativa como estrategia para escalar funcionalidades de banca digital.

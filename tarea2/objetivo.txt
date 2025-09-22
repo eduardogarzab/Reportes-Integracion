@@ -1,1 +1,1 @@
-Comparar sistemáticamente aplicaciones cloud-native frente a cloud-enabled identificando diferencias en diseño, escalabilidad, portabilidad y dependencia de la infraestructura.
+Profundizar la distinción estratégica entre enfoques cloud‑native y cloud‑enabled para fundamentar decisiones de refactorización orientadas a resiliencia, observabilidad y escalabilidad elástica.

@@ -1,1 +1,1 @@
-Diseñar transformaciones XSLT que conviertan documentos XML en vistas web estructuradas y dinámicas, separando claramente datos de presentación.
+Aplicar transformaciones XSLT sobre datos XML para practicar separación de contenido, presentación y filtrado dinámico, reforzando patrones de interoperabilidad en integración de datos.

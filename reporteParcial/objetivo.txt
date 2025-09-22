@@ -1,1 +1,1 @@
-Presentar el primer avance del proyecto final Heartguard exponiendo la propuesta funcional y la arquitectura inicial definida para su evolución posterior.
+Validar tempranamente la viabilidad técnica y alineación funcional del sistema Heartguard articulando capas, flujos críticos y decisiones arquitectónicas que reduzcan riesgo acumulado en iteraciones posteriores.

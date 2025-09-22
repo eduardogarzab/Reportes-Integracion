@@ -1,1 +1,1 @@
-Desplegar y ejecutar localmente un LLM para procesar texto sin depender de servicios externos, garantizando privacidad de los datos y control total del entorno de inferencia.
+Construir una interfaz de chat con un modelo local para comprender el ciclo completo de interacción cliente‑API (peticiones HTTP, manejo de estados UI y control de latencia) en soluciones de inteligencia artificial auto‑hospedadas.
