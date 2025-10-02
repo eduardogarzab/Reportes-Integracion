@@ -1,0 +1,1 @@
+Comparar el rendimiento de inserción y lectura de datos entre Redis y MariaDB usando la misma información de usuarios.
