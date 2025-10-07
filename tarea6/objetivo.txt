@@ -1,0 +1,1 @@
+Implementar un sistema distribuido con autenticación basada en JWT y almacenamiento de sesiones en Redis para proteger microservicios y demostrar un flujo completo de seguridad, revocación y consumo de APIs desde un cliente web.
