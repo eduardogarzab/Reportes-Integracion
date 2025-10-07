@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Libros | Auth + Redis</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Libros · Auth (JWT) + Redis</h1>
+			<div id="status">
+				<span id="authStatus">No autenticado</span>
+				<span id="countdown"></span>
+			</div>
+		</header>
+
+		<section class="card">
+			<h2>1) Login / Registro</h2>
+			<div class="row">
+				<input id="email" placeholder="email o username" />
+				<input id="password" type="password" placeholder="password" />
+				<button id="btnLogin">Login</button>
+				<button id="btnRegister">Register</button>
+				<button id="btnLogout" disabled>Logout</button>
+			</div>
+			<small>Auth Base: <code id="authBase">http://172.206.106.38:5001</code></small>
+		</section>
+
+		<section class="card">
+			<h2>2) Libros (requiere token)</h2>
+			<div class="row">
+				<button id="btnGetAll" disabled>GET /api/books</button>
+				<input id="isbn" placeholder="ISBN" />
+				<button id="btnGetByIsbn" disabled>GET /api/books/isbn/:isbn</button>
+			</div>
+			<iframe id="xmlViewer" title="XML Viewer"></iframe>
+			<small>Libros Base: <code id="booksBase">http://172.206.106.38:5000</code></small>
+		</section>
+
+		<section class="card">
+			<h2>3) Comparación JWT local vs Redis</h2>
+			<div class="row">
+				<button id="btnCompare" disabled>Comparar access (local vs /auth/introspect)</button>
+			</div>
+			<div class="grid2">
+				<div>
+					<h3>LOCAL (decodificado)</h3>
+					<pre id="localJwt"></pre>
+				</div>
+				<div>
+					<h3>REDIS (introspect)</h3>
+					<pre id="redisJwt"></pre>
+				</div>
+			</div>
+		</section>
+
+		<section class="card">
+			<h2>4) Log de cliente</h2>
+			<pre id="log"></pre>
+		</section>
+
+		<script src="app.js"></script>
+	</body>
+</html>
