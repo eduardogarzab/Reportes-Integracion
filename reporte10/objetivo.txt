@@ -1,0 +1,1 @@
+Evaluar y medir el rendimiento y la capacidad de respuesta de un sistema web bajo diferentes cargas de usuarios simulados para identificar cuellos de botella y mejorar su estabilidad.
