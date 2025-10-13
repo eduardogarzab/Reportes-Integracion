@@ -1,0 +1,1 @@
+Demostrar el desarrollo funcional del módulo **Back End CMS**, proporcionando una plataforma web interna para la administración centralizada de contenidos, usuarios y datos del sistema, con todas las operaciones CRUD, reportes, indicadores clave y gráficas del dashboard, validación de datos y control de accesos por roles, sin exponer APIs externas.
