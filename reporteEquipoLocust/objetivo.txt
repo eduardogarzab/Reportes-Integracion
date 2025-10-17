@@ -1,0 +1,1 @@
+Evaluar el rendimiento de los microservicios de Auth y Libros, así como el CMS del proyecto con Locust, para identificar posibles mejoras.
