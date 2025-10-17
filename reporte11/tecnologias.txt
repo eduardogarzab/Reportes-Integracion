@@ -1,0 +1,6 @@
+Flask
+Flasgger
+Swagger UI
+JWT
+Redis
+MySQL

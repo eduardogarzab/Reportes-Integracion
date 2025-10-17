@@ -1,0 +1,1 @@
+Desplegar un servicio Flask documentado con Swagger UI para validar interactivamente los endpoints de autenticación JWT y demostrar cómo los tokens se transmiten, autorizan y se prueban desde la propia interfaz.
