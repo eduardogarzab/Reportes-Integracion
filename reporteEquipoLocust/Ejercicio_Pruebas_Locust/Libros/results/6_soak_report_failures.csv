@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(137200 bytes read, 1695203 more expected)', IncompleteRead(137200 bytes read, 1695203 more expected)))",1
+POST,/api/books/insert [POST],HTTPError('500 Server Error: Internal Server Error for url: /api/books/insert [POST]'),1
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(137200 bytes read, 1703311 more expected)', IncompleteRead(137200 bytes read, 1703311 more expected)))",2
+GET,/api/books/author/[author] [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(137200 bytes read, 163612 more expected)', IncompleteRead(137200 bytes read, 163612 more expected)))",1
+GET,/api/books [GET],HTTPError('500 Server Error: Internal Server Error for url: /api/books [GET]'),2

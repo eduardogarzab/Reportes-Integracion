@@ -1,0 +1,4 @@
+Method,Name,Error,Occurrences
+GET,/api/books/isbn/[isbn] [GET],HTTPError('500 Server Error: Internal Server Error for url: /api/books/isbn/[isbn] [GET]'),3
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(137200 bytes read, 384518 more expected)', IncompleteRead(137200 bytes read, 384518 more expected)))",4
+GET,/api/books [GET],HTTPError('500 Server Error: Internal Server Error for url: /api/books [GET]'),1

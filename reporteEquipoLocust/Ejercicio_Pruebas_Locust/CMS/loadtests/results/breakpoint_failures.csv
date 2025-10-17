@@ -1,0 +1,4 @@
+Method,Name,Error,Occurrences
+GET,GET /superadmin/users,HTTPError('429 Client Error: Too Many Requests for url: GET /superadmin/users'),64
+GET,GET /login,HTTPError('429 Client Error: Too Many Requests for url: GET /login'),70
+GET,GET /superadmin/dashboard,HTTPError('429 Client Error: Too Many Requests for url: GET /superadmin/dashboard'),3864

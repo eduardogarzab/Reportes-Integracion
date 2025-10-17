@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(137200 bytes read, 692452 more expected)', IncompleteRead(137200 bytes read, 692452 more expected)))",1
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(330644 bytes read, 494768 more expected)', IncompleteRead(330644 bytes read, 494768 more expected)))",1
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(137444 bytes read, 688816 more expected)', IncompleteRead(137444 bytes read, 688816 more expected)))",1
+POST,/api/books/insert [POST],HTTPError('409 Client Error: CONFLICT for url: /api/books/insert [POST]'),6
+GET,/api/books [GET],"ChunkedEncodingError(ProtocolError('Connection broken: IncompleteRead(781200 bytes read, 43364 more expected)', IncompleteRead(781200 bytes read, 43364 more expected)))",1
