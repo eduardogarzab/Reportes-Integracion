@@ -1,0 +1,13 @@
+Flask
+mysqlclient
+PyMySQL
+redis
+PyJWT
+flask-cors
+flasgger
+azure-storage-blob
+azure-identity
+python-dotenv
+werkzeug
+gunicorn
+flask-mysqldb

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sistema de Libros</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<style>
+			body {
+				background-color: #f8f9fa;
+			}
+			.book-card img {
+				height: 200px;
+				object-fit: cover;
+				cursor: pointer;
+			}
+			.book-card .card-title {
+				cursor: pointer;
+			}
+			.auth-container {
+				max-width: 400px;
+			}
+			#app-loading,
+			#edit-app-loading {
+				display: none;
+			}
+			#bookImageCarousel .carousel-item img {
+				max-height: 400px;
+				object-fit: contain;
+				margin: auto;
+			}
+			.carousel-control-prev-icon,
+			.carousel-control-next-icon {
+				background-color: rgba(0, 0, 0, 0.5);
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="#">Libros.com</a>
+				<div class="d-flex">
+					<button id="btn-show-create" class="btn btn-primary me-2" style="display: none">+ Nuevo Libro</button>
+					<button id="btn-logout" class="btn btn-outline-warning" style="display: none">Logout</button>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container mt-4">
+			<div id="auth-view" class="mx-auto auth-container">
+				<form id="login-form" class="card p-4">
+					<h3 class="mb-3">Login</h3>
+					<div id="login-error" class="alert alert-danger" style="display: none"></div>
+					<div class="mb-3">
+						<label for="login-who" class="form-label">Email o Username</label>
+						<input type="text" class="form-control" id="login-who" required value="testuser" />
+					</div>
+					<div class="mb-3">
+						<label for="login-password" class="form-label">Password</label>
+						<input type="password" class="form-control" id="login-password" required value="password123" />
+					</div>
+					<button type="submit" class="btn btn-primary">Entrar</button>
+					<a href="#" id="show-register" class="text-center mt-3">No tienes cuenta? Regístrate</a>
+				</form>
+				<form id="register-form" class="card p-4" style="display: none">
+					<h3 class="mb-3">Registro</h3>
+					<div id="register-error" class="alert alert-danger" style="display: none"></div>
+					<div class="mb-3">
+						<label for="reg-email" class="form-label">Email</label>
+						<input type="email" class="form-control" id="reg-email" required />
+					</div>
+					<div class="mb-3">
+						<label for="reg-username" class="form-label">Username</label>
+						<input type="text" class="form-control" id="reg-username" required />
+					</div>
+					<div class="mb-3">
+						<label for="reg-password" class="form-label">Password</label>
+						<input type="password" class="form-control" id="reg-password" required />
+					</div>
+					<button type="submit" class="btn btn-success">Crear Cuenta</button>
+					<a href="#" id="show-login" class="text-center mt-3">Ya tienes cuenta? Login</a>
+				</form>
+			</div>
+
+			<div id="main-view" style="display: none">
+				<h2 id="welcome-user"></h2>
+				<h3>Catálogo de Libros</h3>
+				<div class="row g-3 mb-4 p-3 bg-light rounded border">
+					<div class="col-md-6">
+						<label for="search-bar" class="form-label">Buscar por Título o ISBN</label>
+						<input type="text" class="form-control" id="search-bar" placeholder="Ej: 1984" />
+					</div>
+					<div class="col-md-4">
+						<label for="filter-genero" class="form-label">Filtrar por Género</label>
+						<select id="filter-genero" class="form-select">
+							<option value="">Todos</option>
+							<option>Distopía</option>
+							<option>Romance</option>
+							<option>Drama</option>
+							<option>Thriller</option>
+							<option>Ciencia ficción</option>
+							<option>Fantasía</option>
+							<option>Clásico</option>
+						</select>
+					</div>
+					<div class="col-md-2 d-flex align-items-end">
+						<button id="btn-search" class="btn btn-info w-100">Buscar</button>
+					</div>
+				</div>
+
+				<div id="books-list" class="row g-3"></div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="createBookModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<form id="create-book-form">
+						<div class="modal-header">
+							<h5 class="modal-title">Crear Nuevo Libro</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<div id="create-error" class="alert alert-danger" style="display: none"></div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="book-titulo" class="form-label">Título</label>
+									<input type="text" class="form-control" id="book-titulo" name="titulo" required />
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="book-isbn" class="form-label">ISBN</label>
+									<input type="text" class="form-control" id="book-isbn" name="isbn" required />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<label for="book-autor" class="form-label">Autor</label>
+									<input type="text" class="form-control" id="book-autor" name="autor" value="Gabriel Garcia Marquez" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="book-genero" class="form-label">Género</label>
+									<input type="text" class="form-control" id="book-genero" name="genero" value="Novela" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="book-formato" class="form-label">Formato</label>
+									<input type="text" class="form-control" id="book-formato" name="formato" value="Tapa dura" required />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<label for="book-anio" class="form-label">Año</label>
+									<input type="number" class="form-control" id="book-anio" name="anio_publicacion" value="1967" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="book-precio" class="form-label">Precio</label>
+									<input type="number" step="0.01" class="form-control" id="book-precio" name="precio" value="299.99" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="book-stock" class="form-label">Stock</label>
+									<input type="number" class="form-control" id="book-stock" name="stock" value="100" required />
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="book-images" class="form-label">Imágenes (Max 5, 5MB c/u, JPG/PNG)</label>
+								<input class="form-control" type="file" id="book-images" name="images" multiple accept="image/png, image/jpeg" />
+							</div>
+							<div id="image-preview" class="d-flex flex-wrap gap-2"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary" id="btn-submit-create">
+								<span id="app-loading">
+									<span class="spinner-border spinner-border-sm"></span>
+									Subiendo...
+								</span>
+								<span id="app-ready">Guardar Libro</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="editBookModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<form id="edit-book-form">
+						<input type="hidden" id="edit-book-id" name="id_libro" />
+						<div class="modal-header">
+							<h5 class="modal-title">Editar Libro</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+						</div>
+						<div class="modal-body">
+							<div id="edit-error" class="alert alert-danger" style="display: none"></div>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="edit-book-titulo" class="form-label">Título</label>
+									<input type="text" class="form-control" id="edit-book-titulo" name="titulo" required />
+								</div>
+								<div class="col-md-6 mb-3">
+									<label for="edit-book-isbn" class="form-label">ISBN</label>
+									<input type="text" class="form-control" id="edit-book-isbn" name="isbn" required />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<label for="edit-book-autor" class="form-label">Autor</label>
+									<input type="text" class="form-control" id="edit-book-autor" name="autor" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="edit-book-genero" class="form-label">Género</label>
+									<input type="text" class="form-control" id="edit-book-genero" name="genero" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="edit-book-formato" class="form-label">Formato</label>
+									<input type="text" class="form-control" id="edit-book-formato" name="formato" required />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<label for="edit-book-anio" class="form-label">Año</label>
+									<input type="number" class="form-control" id="edit-book-anio" name="anio_publicacion" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="edit-book-precio" class="form-label">Precio</label>
+									<input type="number" step="0.01" class="form-control" id="edit-book-precio" name="precio" required />
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="edit-book-stock" class="form-label">Stock</label>
+									<input type="number" class="form-control" id="edit-book-stock" name="stock" required />
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="edit-book-images" class="form-label">Nuevas Imágenes (Opcional: reemplazará las antiguas)</label>
+								<input class="form-control" type="file" id="edit-book-images" name="images" multiple accept="image/png, image/jpeg" />
+							</div>
+							<div id="edit-image-preview" class="d-flex flex-wrap gap-2">
+								<small>Imágenes actuales (se reemplazarán si subes nuevas):</small>
+								<div id="edit-current-images" class="d-flex flex-wrap gap-2 mt-2"></div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary" id="btn-submit-edit">
+								<span id="edit-app-loading">
+									<span class="spinner-border spinner-border-sm"></span>
+									Actualizando...
+								</span>
+								<span id="edit-app-ready">Actualizar Libro</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="bookDetailModal" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="detail-titulo">Título del Libro</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<h6 class="text-muted" id="detail-autor">Autor y Año</h6>
+						<hr />
+						<div id="bookImageCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+							<div class="carousel-indicators" id="carousel-indicators"></div>
+							<div class="carousel-inner" id="carousel-inner"></div>
+							<button class="carousel-control-prev" type="button" data-bs-target="#bookImageCarousel" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-bs-target="#bookImageCarousel" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item d-flex justify-content-between">
+								<strong>ISBN:</strong>
+								<span id="detail-isbn"></span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<strong>Género:</strong>
+								<span id="detail-genero"></span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<strong>Formato:</strong>
+								<span id="detail-formato"></span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<strong>Stock:</strong>
+								<span id="detail-stock" class="badge bg-success rounded-pill"></span>
+							</li>
+							<li class="list-group-item d-flex justify-content-between">
+								<strong>Precio:</strong>
+								<span id="detail-precio" class="fw-bold text-primary fs-5"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+		<script>
+			// === URLs DE LAS APIS ===
+			const AUTH_API = "http://172.206.106.38:5001";
+			const BOOKS_API = "http://172.206.106.38:5000";
+
+			// Elementos del DOM
+			const authView = document.getElementById("auth-view");
+			const mainView = document.getElementById("main-view");
+			const booksListEl = document.getElementById("books-list");
+			const welcomeUserEl = document.getElementById("welcome-user");
+			const btnLogout = document.getElementById("btn-logout");
+			const btnShowCreate = document.getElementById("btn-show-create");
+
+			// Formularios
+			const loginForm = document.getElementById("login-form");
+			const registerForm = document.getElementById("register-form");
+			const createBookForm = document.getElementById("create-book-form");
+			const editBookForm = document.getElementById("edit-book-form");
+
+			// Modales
+			const createBookModal = new bootstrap.Modal(document.getElementById("createBookModal"));
+			const editBookModal = new bootstrap.Modal(document.getElementById("editBookModal"));
+			const bookDetailModal = new bootstrap.Modal(document.getElementById("bookDetailModal"));
+
+			// Búsqueda
+			const searchBar = document.getElementById("search-bar");
+			const filterGenero = document.getElementById("filter-genero");
+			const btnSearch = document.getElementById("btn-search");
+
+			// Estado de la App
+			let accessToken = localStorage.getItem("access_token");
+			let refreshToken = localStorage.getItem("refresh_token");
+
+			// Función de inicialización
+			document.addEventListener("DOMContentLoaded", () => {
+				initAuthToggle();
+				initFormListeners();
+				checkLoginState();
+			});
+
+			function checkLoginState() {
+				if (accessToken) {
+					showMainView();
+					fetchBooks();
+				} else {
+					showAuthView();
+				}
+			}
+
+			function showAuthView() {
+				authView.style.display = "block";
+				mainView.style.display = "none";
+				btnLogout.style.display = "none";
+				btnShowCreate.style.display = "none";
+			}
+
+			function showMainView() {
+				authView.style.display = "none";
+				mainView.style.display = "block";
+				btnLogout.style.display = "block";
+				btnShowCreate.style.display = "block";
+				const username = localStorage.getItem("username");
+				welcomeUserEl.textContent = `Bienvenido, ${username || "usuario"}`;
+			}
+
+			function initAuthToggle() {
+				document.getElementById("show-register").addEventListener("click", (e) => {
+					e.preventDefault();
+					loginForm.style.display = "none";
+					registerForm.style.display = "block";
+				});
+				document.getElementById("show-login").addEventListener("click", (e) => {
+					e.preventDefault();
+					loginForm.style.display = "block";
+					registerForm.style.display = "none";
+				});
+			}
+
+			function initFormListeners() {
+				loginForm.addEventListener("submit", handleLogin);
+				registerForm.addEventListener("submit", handleRegister);
+				btnLogout.addEventListener("click", handleLogout);
+				btnShowCreate.addEventListener("click", () => createBookModal.show());
+				createBookForm.addEventListener("submit", handleCreateBook);
+				editBookForm.addEventListener("submit", handleUpdateBook);
+				btnSearch.addEventListener("click", fetchBooks);
+				searchBar.addEventListener("keydown", (e) => {
+					if (e.key === "Enter") fetchBooks();
+				});
+			}
+
+			// --- FUNCIONES DE AUTENTICACIÓN ---
+			async function handleLogin(e) {
+				e.preventDefault();
+				const who = document.getElementById("login-who").value;
+				const password = document.getElementById("login-password").value;
+				try {
+					const res = await fetch(`${AUTH_API}/auth/login`, {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ who, password }),
+					});
+					const data = await res.json();
+					if (!res.ok) throw new Error(data.error);
+					saveAuthData(data);
+					checkLoginState();
+				} catch (err) {
+					showError("login-error", err.message);
+				}
+			}
+
+			async function handleRegister(e) {
+				e.preventDefault();
+				const email = document.getElementById("reg-email").value;
+				const username = document.getElementById("reg-username").value;
+				const password = document.getElementById("reg-password").value;
+				try {
+					const res = await fetch(`${AUTH_API}/auth/register`, {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ email, username, password }),
+					});
+					const data = await res.json();
+					if (!res.ok) throw new Error(data.error || data.details);
+					saveAuthData(data);
+					checkLoginState();
+				} catch (err) {
+					showError("register-error", err.message);
+				}
+			}
+
+			function handleLogout() {
+				localStorage.clear();
+				accessToken = null;
+				refreshToken = null;
+				checkLoginState();
+			}
+
+			function saveAuthData(data) {
+				accessToken = data.tokens.access_token;
+				refreshToken = data.tokens.refresh_token;
+				localStorage.setItem("access_token", accessToken);
+				localStorage.setItem("refresh_token", refreshToken);
+				localStorage.setItem("username", data.user.username);
+			}
+
+			// --- FUNCIONES CRUD DE LIBROS ---
+
+			async function fetchBooks() {
+				if (!accessToken) return;
+				const params = new URLSearchParams();
+				const q = searchBar.value;
+				const genero = filterGenero.value;
+				if (q) params.append("q", q);
+				if (genero) params.append("genero", genero);
+				const queryString = params.toString();
+				try {
+					const res = await fetch(`${BOOKS_API}/api/books?${queryString}`, {
+						headers: { Authorization: `Bearer ${accessToken}` },
+					});
+					if (res.status === 401) {
+						handleLogout();
+						return;
+					}
+					const books = await res.json();
+					renderBooks(books);
+				} catch (err) {
+					showError("books-list", err.message, "alert alert-danger");
+				}
+			}
+
+			function renderBooks(books) {
+				booksListEl.innerHTML = "";
+				if (books.length === 0) {
+					booksListEl.innerHTML = "<p>No se encontraron libros para esta búsqueda.</p>";
+					return;
+				}
+				books.forEach((book) => {
+					const img_url = book.imagenes[0] || "https://via.placeholder.com/300x200.png?text=Sin+Imagen";
+					const card = `
+                <div class="col-md-4">
+                    <div class="card book-card h-100">
+                        <img src="${img_url}" class="card-img-top" alt="${book.titulo}" onclick="handleShowDetailModal(${book.id_libro})">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title" onclick="handleShowDetailModal(${book.id_libro})">${book.titulo}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${book.autor} (${book.anio_publicacion})</h6>
+                            <p class="card-text">
+                                <strong>Género:</strong> ${book.genero} <br>
+                                <strong>Formato:</strong> ${book.formato} <br>
+                                <strong>Stock:</strong> ${book.stock}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="text-primary fs-4 fw-bold">$${book.precio}</span>
+                                <div>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="handleShowEditModal(${book.id_libro})">Editar</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="handleDelete(${book.id_libro})">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+					booksListEl.innerHTML += card;
+				});
+			}
+
+			async function handleCreateBook(e) {
+				e.preventDefault();
+				if (!accessToken) return;
+				const createBtn = document.getElementById("btn-submit-create");
+				toggleLoading(createBtn, true, "app-loading", "app-ready");
+
+				// ===== ¡ESTO AHORA FUNCIONARÁ GRACIAS A LOS ATRIBUTOS 'name'! =====
+				const formData = new FormData(createBookForm);
+
+				try {
+					const res = await fetch(`${BOOKS_API}/api/books`, {
+						method: "POST",
+						headers: { Authorization: `Bearer ${accessToken}` },
+						body: formData,
+					});
+					if (!res.ok) {
+						let errorData = null;
+						try {
+							errorData = await res.json();
+						} catch (jsonErr) {
+							throw new Error(`Error HTTP ${res.status}. El servidor no devolvió JSON. (Status: ${res.statusText})`);
+						}
+						throw new Error(errorData.error || `Error HTTP ${res.status}`);
+					}
+					const data = await res.json();
+					createBookModal.hide();
+					createBookForm.reset();
+					document.getElementById("image-preview").innerHTML = "";
+					fetchBooks();
+				} catch (err) {
+					console.error("Error en handleCreateBook:", err);
+					let errorMsg = err.message;
+					if (err.message === "Failed to fetch") {
+						errorMsg =
+							"Error de Red o CORS. Asegúrate de que el microservicio 'micro.py' está corriendo en el puerto 5000 y que tu navegador no está forzando HTTPS (Modo Solo-HTTPS desactivado).";
+					}
+					showError("create-error", errorMsg);
+				} finally {
+					toggleLoading(createBtn, false, "app-loading", "app-ready");
+				}
+			}
+
+			async function handleShowEditModal(id_libro) {
+				try {
+					const res = await fetch(`${BOOKS_API}/api/books/${id_libro}`, {
+						headers: { Authorization: `Bearer ${accessToken}` },
+					});
+					if (res.status === 401) {
+						handleLogout();
+						return;
+					}
+					const book = await res.json();
+					if (!res.ok) throw new Error(book.error);
+
+					document.getElementById("edit-book-id").value = book.id_libro;
+					document.getElementById("edit-book-titulo").value = book.titulo;
+					document.getElementById("edit-book-isbn").value = book.isbn;
+					document.getElementById("edit-book-autor").value = book.autor;
+					document.getElementById("edit-book-genero").value = book.genero;
+					document.getElementById("edit-book-formato").value = book.formato;
+					document.getElementById("edit-book-anio").value = book.anio_publicacion;
+					document.getElementById("edit-book-precio").value = book.precio;
+					document.getElementById("edit-book-stock").value = book.stock;
+
+					const currentImagesEl = document.getElementById("edit-current-images");
+					currentImagesEl.innerHTML = "";
+					if (book.imagenes.length > 0) {
+						book.imagenes.forEach((url) => {
+							const img = document.createElement("img");
+							img.src = url;
+							img.style.height = "60px";
+							img.style.objectFit = "cover";
+							currentImagesEl.appendChild(img);
+						});
+					} else {
+						currentImagesEl.innerHTML = "<small>Este libro no tiene imágenes.</small>";
+					}
+					document.getElementById("edit-book-images").value = "";
+					editBookModal.show();
+				} catch (err) {
+					alert(`Error al cargar el libro: ${err.message}`);
+				}
+			}
+
+			async function handleUpdateBook(e) {
+				e.preventDefault();
+				if (!accessToken) return;
+				const editBtn = document.getElementById("btn-submit-edit");
+				toggleLoading(editBtn, true, "edit-app-loading", "edit-app-ready");
+				const id_libro = document.getElementById("edit-book-id").value;
+
+				// ===== ¡ESTO AHORA FUNCIONARÁ GRACIAS A LOS ATRIBUTOS 'name'! =====
+				const formData = new FormData(editBookForm);
+
+				const imageFiles = document.getElementById("edit-book-images").files;
+				if (imageFiles.length === 0) {
+					formData.delete("images");
+				}
+
+				try {
+					const res = await fetch(`${BOOKS_API}/api/books/${id_libro}`, {
+						method: "PUT",
+						headers: { Authorization: `Bearer ${accessToken}` },
+						body: formData,
+					});
+					if (!res.ok) {
+						let errorData = null;
+						try {
+							errorData = await res.json();
+						} catch (jsonErr) {
+							throw new Error(`Error HTTP ${res.status}. El servidor no devolvió JSON. (Status: ${res.statusText})`);
+						}
+						throw new Error(errorData.error || `Error HTTP ${res.status}`);
+					}
+					const data = await res.json();
+					editBookModal.hide();
+					fetchBooks();
+				} catch (err) {
+					console.error("Error en handleUpdateBook:", err);
+					let errorMsg = err.message;
+					if (err.message === "Failed to fetch") {
+						errorMsg =
+							"Error de Red o CORS. Asegúrate de que el microservicio 'micro.py' está corriendo en el puerto 5000 y que tu navegador no está forzando HTTPS (Modo Solo-HTTPS desactivado).";
+					}
+					showError("edit-error", errorMsg);
+				} finally {
+					toggleLoading(editBtn, false, "edit-app-loading", "edit-app-ready");
+				}
+			}
+
+			async function handleDelete(id_libro) {
+				if (!confirm(`¿Estás seguro de que quieres eliminar el libro con ID ${id_libro}? Esta acción no se puede deshacer.`)) {
+					return;
+				}
+				if (!accessToken) return;
+				try {
+					const res = await fetch(`${BOOKS_API}/api/books/${id_libro}`, {
+						method: "DELETE",
+						headers: { Authorization: `Bearer ${accessToken}` },
+					});
+					const data = await res.json();
+					if (!res.ok) throw new Error(data.error || "Error desconocido");
+					fetchBooks();
+				} catch (err) {
+					alert(`Error al eliminar: ${err.message}`);
+				}
+			}
+
+			// --- Función de Detalles (Sin cambios) ---
+			async function handleShowDetailModal(id_libro) {
+				try {
+					const res = await fetch(`${BOOKS_API}/api/books/${id_libro}`, {
+						headers: { Authorization: `Bearer ${accessToken}` },
+					});
+					if (res.status === 401) {
+						handleLogout();
+						return;
+					}
+					const book = await res.json();
+					if (!res.ok) throw new Error(book.error);
+
+					document.getElementById("detail-titulo").textContent = book.titulo;
+					document.getElementById("detail-autor").textContent = `${book.autor} (${book.anio_publicacion})`;
+					document.getElementById("detail-isbn").textContent = book.isbn;
+					document.getElementById("detail-genero").textContent = book.genero;
+					document.getElementById("detail-formato").textContent = book.formato;
+					document.getElementById("detail-stock").textContent = book.stock;
+					document.getElementById("detail-precio").textContent = `$${book.precio}`;
+
+					const indicatorsEl = document.getElementById("carousel-indicators");
+					const innerEl = document.getElementById("carousel-inner");
+					indicatorsEl.innerHTML = "";
+					innerEl.innerHTML = "";
+
+					if (book.imagenes && book.imagenes.length > 0) {
+						book.imagenes.forEach((url, index) => {
+							const activeClass = index === 0 ? "active" : "";
+							indicatorsEl.innerHTML += `
+                            <button type="button" data-bs-target="#bookImageCarousel" 
+                                    data-bs-slide-to="${index}" class="${activeClass}" 
+                                    aria-current="${index === 0}" aria-label="Slide ${index + 1}">
+                            </button>`;
+							innerEl.innerHTML += `
+                            <div class="carousel-item ${activeClass}">
+                                <img src="${url}" class="d-block w-100" alt="Imagen ${index + 1}">
+                            </div>`;
+						});
+					} else {
+						innerEl.innerHTML = `
+                        <div class="carousel-item active">
+                            <img src="https://via.placeholder.com/800x600.png?text=Sin+Imagen" class="d-block w-100" alt="Sin Imagen">
+                        </div>`;
+					}
+					bookDetailModal.show();
+				} catch (err) {
+					alert(`Error al cargar los detalles del libro: ${err.message}`);
+				}
+			}
+
+			// --- FUNCIONES DE UTILIDAD (Sin cambios) ---
+
+			function showError(elementId, message, classes = "alert alert-danger") {
+				const el = document.getElementById(elementId);
+				el.className = classes;
+				el.textContent = message;
+				el.style.display = "block";
+				setTimeout(() => {
+					el.style.display = "none";
+				}, 7000);
+			}
+
+			function toggleLoading(btn, isLoading, loadingId, readyId) {
+				const loadingEl = btn.querySelector(`#${loadingId}`);
+				const readyEl = btn.querySelector(`#${readyId}`);
+				if (isLoading) {
+					loadingEl.style.display = "inline-block";
+					readyEl.style.display = "none";
+					btn.disabled = true;
+				} else {
+					loadingEl.style.display = "none";
+					readyEl.style.display = "inline-block";
+					btn.disabled = false;
+				}
+			}
+		</script>
+	</body>
+</html>
