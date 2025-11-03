@@ -1,0 +1,1 @@
+Desarrollar un microservicio Flask desde cero que permita subir imágenes via multipart, validarlas y almacenarlas en Azure Blob Storage, registrar sus metadatos en MariaDB y generar URLs prefirmadas (SAS) para acceso seguro y temporal.

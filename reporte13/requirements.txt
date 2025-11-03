@@ -1,0 +1,10 @@
+Flask
+pymysql
+azure-storage-blob
+azure-identity
+werkzeug
+dicttoxml
+flasgger
+gunicorn
+flask-cors
+python-dotenv

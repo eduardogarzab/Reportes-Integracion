@@ -1,0 +1,1 @@
+Implementar en el microservicio de libros la gestión completa de imágenes: subida multipart desde la UI, validación y almacenamiento en buckets S3‑compatible o Azure Blob, registro de metadatos en la BD y generación de URLs prefirmadas para acceso seguro y eliminación de imágenes.
